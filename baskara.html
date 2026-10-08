@@ -1,0 +1,27 @@
+<h1>Baskara</h1>
+<input type="text" id="aValue"> x^2
+<input type="text" id="bValue"> x
+<input type="text" id="cValue"> = 0
+<button onclick="calcular()">Calcular</button>
+<br>
+<p id="resultado"></p>
+
+
+<script>
+    function calcular() {
+
+        const resultado = document.getElementById('resultado')
+        const a = document.getElementById('aValue').value
+        let b = document.getElementById('bValue').value
+        const c = document.getElementById('cValue').value
+        
+        const delta = (b ** 2) - (4 * a * c)
+
+        b = b * -1
+
+        const x1 = (b + (delta ** 0.5)) / 2 * a
+        const x2 = (b - (delta ** 0.5)) / 2 * a
+        
+        resultado.textContent = `x1 = ${x1} | x2 = ${x2}`
+    }
+</script>

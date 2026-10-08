@@ -1,0 +1,25 @@
+<h1>Pitágoras</h1>
+
+<input type="text" id="catetoX">Cateto X
+<input type="text" id="catetoY">Cateto Y
+<input type="text" id="hipotenusa">Hipotenusa
+<button onclick="calcular()">Calcular</button>
+<p id="resultado"></p>
+
+<script>
+    function calcular(){
+        
+        const x = document.getElementById('catetoX').value
+        const y = document.getElementById('catetoY').value
+        const hipotenusa = document.getElementById('hipotenusa').value
+        const resultado = document.getElementById('resultado')
+        
+        if (!hipotenusa) {
+            resultado.textContent = `Hipotenusa = ${(x ** 2) + (y ** 2)}`
+        } else if (!x) {
+            resultado.textContent = `Cateto X = ${(hipotenusa ** 2) + (y ** 2)}`
+        } else if (!y) {
+            resultado.textContent = `Cateto Y = ${(hipotenusa ** 2) + (x ** 2)}`
+        }
+    }
+</script>
