@@ -36,7 +36,7 @@ export default function PitagorasScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
-          <TextInput placeholder='PITAGORAS'/>
+          <TextInput placeholder='PITAGORAS'style={styles.input}/>
         </ThemedView>
       </SafeAreaView>
     </ThemedView>
@@ -78,9 +78,9 @@ const styles = StyleSheet.create({
     borderRadius: Spacing.four,
   },
   input: {
-    height: 40,
+    height: 10,
     margin: 12,
-    borderWidth: 10,
+    borderWidth: 1,
     borderColor: '#000000',
     padding: 10,
   },

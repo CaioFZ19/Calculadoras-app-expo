@@ -1,5 +1,5 @@
 import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnimatedIcon } from '@/components/animated-icon';
@@ -28,36 +28,18 @@ function getDevMenuHint() {
   );
 }
 
-export default function HomeScreen() {
+export default function BaskaraScreen() {
   return (
     <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Baskara
-          </ThemedText>
+          <SafeAreaView style={styles.safeArea}>
+            <ThemedView style={styles.heroSection}>
+              <TextInput style={styles.input} placeholder='a' id='aValue'/>
+              <TextInput style={styles.input} placeholder='b' id='bValue'/>
+              <TextInput style={styles.input} placeholder='c' id='cValue'/>
+              
+            </ThemedView>
+          </SafeAreaView>
         </ThemedView>
-
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
-
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
   );
 }
 
@@ -94,5 +76,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.three,
     paddingVertical: Spacing.four,
     borderRadius: Spacing.four,
+  },
+  input: {
+    height: 10,
+    margin: 12,
+    borderWidth: 1,
+    borderColor: '#000000',
+    padding: 10,
   },
 });
