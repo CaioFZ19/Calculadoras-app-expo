@@ -33,8 +33,8 @@ export default function BaskaraScreen() {
     <ThemedView style={styles.container}>
           <SafeAreaView style={styles.safeArea}>
             <ThemedView style={styles.heroSection}>
-              <TextInput style={styles.input} placeholder='a' id='aValue'/>
-              <TextInput style={styles.input} placeholder='b' id='bValue'/>
+              <TextInput style={styles.input} placeholder='a (x^2)' id='aValue'/>
+              <TextInput style={styles.input} placeholder='b (x)' id='bValue'/>
               <TextInput style={styles.input} placeholder='c' id='cValue'/>
               
             </ThemedView>

@@ -36,7 +36,12 @@ export default function PitagorasScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
-          <TextInput placeholder='PITAGORAS'style={styles.input}/>
+          <TextInput placeholder='CatetoX'style={styles.input}/>
+          <TextInput placeholder='CatetoY'style={styles.input}/>
+          <TextInput placeholder='Hipotenusa'style={styles.input}/>
+          <p id='resultado'></p>
+
+          
         </ThemedView>
       </SafeAreaView>
     </ThemedView>
