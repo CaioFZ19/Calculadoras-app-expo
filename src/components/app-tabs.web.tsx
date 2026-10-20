@@ -1,19 +1,12 @@
-import {
-  Tabs,
-  TabList,
-  TabTrigger,
-  TabSlot,
-  TabTriggerSlotProps,
-  TabListProps,
-} from 'expo-router/ui';
-import { SymbolView } from 'expo-symbols';
-import { Pressable, useColorScheme, View, StyleSheet } from 'react-native';
-
 import { Colors, MaxContentWidth, Spacing } from '@/constants/theme';
-
+import { TabList, TabListProps, Tabs, TabSlot, TabTrigger, TabTriggerSlotProps } from 'expo-router/ui';
+import { SymbolView } from 'expo-symbols';
+import { Pressable, StyleSheet, useColorScheme, View } from 'react-native';
 import { ExternalLink } from './external-link';
 import { ThemedText } from './themed-text';
 import { ThemedView } from './themed-view';
+
+
 
 export default function AppTabs() {
   return (
@@ -22,10 +15,19 @@ export default function AppTabs() {
       <TabList asChild>
         <CustomTabList>
           <TabTrigger name="home" href="/" asChild>
-            <TabButton>Home</TabButton>
+            <TabButton>Home Do Adelar</TabButton>
           </TabTrigger>
           <TabTrigger name="explore" href="/explore" asChild>
             <TabButton>Explore</TabButton>
+          </TabTrigger>
+          <TabTrigger name="calculadoras" href="/calculadoras" asChild>
+            <TabButton>calculadoras</TabButton>
+          </TabTrigger>
+          <TabTrigger name="bhaskara" href="/calculadoras/bhaskara" asChild>
+            <TabButton>bhaskara</TabButton>
+          </TabTrigger>
+          <TabTrigger name="pitagoras" href="/calculadoras/pitagoras" asChild>
+            <TabButton>pitagoras</TabButton>
           </TabTrigger>
         </CustomTabList>
       </TabList>
@@ -49,7 +51,7 @@ export function TabButton({ children, isFocused, ...props }: TabTriggerSlotProps
 
 export function CustomTabList(props: TabListProps) {
   const scheme = useColorScheme();
-  const colors = Colors[scheme === 'dark' ? 'dark' : 'light'];
+  const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
 
   return (
     <View {...props} style={styles.tabListContainer}>
