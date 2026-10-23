@@ -4,7 +4,7 @@ import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
 import * as Device from "expo-device";
 import { useState } from "react";
 import { Platform, StyleSheet, TextInput } from "react-native";
-
+import { Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 function getDevMenuHint() {
@@ -27,8 +27,25 @@ function getDevMenuHint() {
 }
 
 export default function PitagorasScreen() {
-  const [text, onChangeText] = useState("Useless Text");
-  const [number, onChangeNumber] = useState("");
+  const [catetoA, setCatetoA] = useState("")
+  const [catetoB, setCatetoB] = useState("")
+  const [hipotenusa, setHipotenusa] = useState("")
+  const [resultado, setResultado] = useState("")
+
+  const calc = () => {
+    if (!hipotenusa && !catetoA && !catetoB){
+      setResultado("")
+    } else if (!hipotenusa) {
+      const resposta = (catetoA ** 2) + (catetoB ** 2)
+      setResultado(`Hipotenusa = ${resposta}`)
+    } else if (!catetoA) {
+      const resposta = ((hipotenusa ** 2) - (catetoB ** 2)) ** 0.5
+      setResultado(`Cateto A = ${resposta}`)
+    } else if (!catetoB) {
+      const resposta = ((hipotenusa ** 2) - (catetoA ** 2)) ** 0.5
+      setResultado(`Cateto B = ${resposta}`)
+    }
+  }
 
   return (
     <ThemedView style={styles.container}>
@@ -36,15 +53,30 @@ export default function PitagorasScreen() {
         <ThemedView style={styles.heroSection}>
           <TextInput
             style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
+            onChangeText={setCatetoA}
+            value={catetoA}
+            placeholder="Cateto A"
+            keyboardType="numeric"
           />
           <TextInput
             style={styles.input}
-            onChangeText={onChangeNumber}
-            value={number}
-            placeholder="useless placeholder"
+            onChangeText={setCatetoB}
+            value={catetoB}
+            placeholder="Cateto B"
             keyboardType="numeric"
+          />
+          <TextInput
+            style={styles.input}
+            onChangeText={setHipotenusa}
+            value={hipotenusa}
+            placeholder="Hipotenusa"
+            keyboardType="numeric"
+          />
+          <Button title="Calcular" onPress={calc} />
+          <TextInput
+            value={resultado}
+            style={styles.input}
+            onChangeText={setResultado}
           />
         </ThemedView>
       </SafeAreaView>

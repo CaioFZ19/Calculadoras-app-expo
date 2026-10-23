@@ -27,47 +27,49 @@ function getDevMenuHint() {
 }
 
 export function calcDelta(a, b, c){
-  return b ** 2 - 4 * a * c;
+  return b ** 2 - 4 * a * c
 }
 
 export function calcBhaskara(a, b, c){
 
-  const delta = calcDelta(a,b,c);
-  console.log("delta", delta);
+  const delta = calcDelta(a,b,c)
+  console.log("delta", delta)
 
   if (delta === 0) {
-    const x1 = (b * -1) / (2 * a);
-    console.log("x1", x1);
+    const x1 = (b * -1) / (2 * a)
+    console.log("x1", x1)
   } else if (delta > 0) {
-    const x1 = (b * -1 + delta ** 0.5) / (2 * a);
-    const x2 = (b * -1 - delta ** 0.5) / (2 * a);
-    console.log("x1", x1);
-    console.log("x2", x2);
+    const x1 = (b * -1 + delta ** 0.5) / (2 * a)
+    const x2 = (b * -1 - delta ** 0.5) / (2 * a)
+    console.log("x1", x1)
+    console.log("x2", x2)
   } else {
-    console.log("Error");
+    console.log("Error")
   }
 }
 export default function PitagorasScreen() {
-  const [valueA, onChangeTextA] = useState(0);
-  const [valueB, onChangeTextB] = useState(0);
-  const [valueC, onChangeTextC] = useState(0);
-  const [resultado, setResultado] = useState("");
+  const [valueA, onChangeTextA] = useState("")
+  const [valueB, onChangeTextB] = useState("")
+  const [valueC, onChangeTextC] = useState("")
+  const [resultado, setResultado] = useState("")
 
   const calc = () => {
 
-    const delta = valueB ** 2 - 4 * valueA * valueC;
+    const delta = valueB ** 2 - 4 * valueA * valueC
 
-    console.log("delta", delta);
+    console.log("delta", delta)
 
-    if (delta === 0) {
-      const x1 = (valueB * -1) / (2 * valueA);
+    if (!valueA && !valueB && !valueC){
+      setResultado("")
+    } else if (delta === 0) {
+      const x1 = (valueB * -1) / (2 * valueA)
       setResultado(`x1 = ${x1}`)
     } else if (delta > 0) {
-      const x1 = (valueB * -1 + delta ** 0.5) / (2 * valueA);
-      const x2 = (valueB * -1 - delta ** 0.5) / (2 * valueA);
+      const x1 = (valueB * -1 + delta ** 0.5) / (2 * valueA)
+      const x2 = (valueB * -1 - delta ** 0.5) / (2 * valueA)
       setResultado(`x1 = ${x1} & x2 = ${x2}`)
     } else {
-      setResultado("Error");
+      setResultado("Erro: sem raízes reais existentes")
     }
   };
 
@@ -79,16 +81,19 @@ export default function PitagorasScreen() {
             style={styles.input}
             value={valueA}
             onChangeText={onChangeTextA}
+            placeholder="A"
           />
           <TextInput
             style={styles.input}
             value={valueB}
             onChangeText={onChangeTextB}
+            placeholder="B"
           />
           <TextInput
             style={styles.input}
             value={valueC}
             onChangeText={onChangeTextC}
+            placeholder="C"
           />
           <Button title="Calcular" onPress={calc} />
           <TextInput
