@@ -47,7 +47,7 @@ export function calcBhaskara(a, b, c){
     console.log("Error")
   }
 }
-export default function PitagorasScreen() {
+export default function BhaskaraScreen() {
   const [valueA, onChangeTextA] = useState("")
   const [valueB, onChangeTextB] = useState("")
   const [valueC, onChangeTextC] = useState("")
