@@ -5,30 +5,39 @@ import { Button, StyleSheet, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function CalculadoraScreen() {
-  const [resultado, setResultado] = useState("");
+  const [display, setDisplay] = useState("")
+  const [memoria, setMemoria] = useState (0)
+  const [operador, setOperador] = useState ("")
+  const [resultado, setResultado] = useState ("")
 
   const conta = (n: string) => {
-    setResultado(resultado + n);
-  };
+    if (n != "+" && n != "-" && n != "*" && n != "/" && n!= "C"){
+      
+    } else if (n == "C") {
+      setDisplay("")
+      setMemoria(0)
+    }
+  }
 
-  const calc = () => {};
-    const array = resultado.split(/(\d+)/g)
-    console.log(array)
+  const calc = () => {
+    setDisplay(resultado)
+    console.log(resultado)
+  };
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
           <TextInput
             style={styles.input}
-            value={resultado}
-            onChangeText={setResultado}
+            value={display}
+            onChangeText={setDisplay}
           />
 
           <ThemedView style={styles.teclado_linha}>
             <Button title="7" onPress={() => conta("7")}></Button>
             <Button title="8" onPress={() => conta("8")}></Button>
             <Button title="9" onPress={() => conta("9")}></Button>
-            <Button title="C" onPress={() => setResultado("")}></Button>
+            <Button title="C" onPress={() => conta("C")}></Button>
           </ThemedView>
 
           <ThemedView style={styles.teclado_linha}>
@@ -56,6 +65,7 @@ export default function CalculadoraScreen() {
     </ThemedView>
   );
 }
+
 
 const styles = StyleSheet.create({
   teclado: {

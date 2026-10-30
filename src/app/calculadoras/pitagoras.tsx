@@ -36,7 +36,7 @@ export default function PitagorasScreen() {
     if (!hipotenusa && !catetoA && !catetoB){
       setResultado("")
     } else if (!hipotenusa) {
-      const resposta = (catetoA ** 2) + (catetoB ** 2)
+      const resposta = ((catetoA ** 2) + (catetoB ** 2)) ** 0.5
       setResultado(`Hipotenusa = ${resposta}`)
     } else if (!catetoA) {
       const resposta = ((hipotenusa ** 2) - (catetoB ** 2)) ** 0.5
